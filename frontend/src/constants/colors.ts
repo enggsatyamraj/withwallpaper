@@ -1,7 +1,7 @@
 export const Colors = {
     light: {
         // Background colors
-        background: '#F8F9FA', // Main light background
+        background: '#f5f7f8', // Main light background
         backgroundSecondary: '#FFFFFF', // Card/secondary background
         foreground: '#1A1A1A', // Main text color
 
@@ -10,8 +10,11 @@ export const Colors = {
         cardForeground: '#1A1A1A', // Card text
 
         // Primary colors (Blue accent from design)
-        primary: '#007AFF', // Main blue color from buttons/tabs
+        primary: '#258cf4', // Main blue color from buttons/tabs
         primaryForeground: '#FFFFFF', // White text on primary
+
+        sub_primary: '#bad8f6',
+        sub_sub_primary: '#e0ebf7',
 
         // Secondary colors
         secondary: '#F1F3F4', // Light gray backgrounds
@@ -23,7 +26,7 @@ export const Colors = {
 
         // Accent colors
         accent: '#E3F2FD', // Light blue tint for highlights
-        accentForeground: '#007AFF',
+        accentForeground: '#258cf4',
 
         // Border and input
         border: '#E5E7EB', // Light borders
@@ -38,17 +41,17 @@ export const Colors = {
         // Icon colors
         iconPrimary: '#374151', // Primary icons
         iconSecondary: '#9CA3AF', // Secondary icons
-        iconActive: '#007AFF', // Active/selected icons
+        iconActive: '#258cf4', // Active/selected icons
 
         // Tab colors
-        tabActive: '#007AFF', // Active tab color
+        tabActive: '#258cf4', // Active tab color
         tabInactive: '#9CA3AF', // Inactive tab color
         tabBackground: '#FFFFFF', // Tab bar background
     },
 
     dark: {
         // Background colors
-        background: '#1C1C1E', // Main dark background from design
+        background: '#101923', // Main dark background from design
         backgroundSecondary: '#2C2C2E', // Secondary dark background
         foreground: '#FFFFFF', // Main text color
 
@@ -59,6 +62,9 @@ export const Colors = {
         // Primary colors (Blue accent)
         primary: '#0A84FF', // Brighter blue for dark mode
         primaryForeground: '#FFFFFF', // White text on primary
+
+        sub_primary: '#184b7f',
+        sub_sub_primary: '#13304c',
 
         // Secondary colors
         secondary: '#3A3A3C', // Dark gray backgrounds
@@ -100,14 +106,14 @@ export const Colors = {
         black: '#000000',
 
         // Brand colors
-        brandPrimary: '#007AFF',
+        brandPrimary: '#258cf4',
         brandSecondary: '#0A84FF',
 
         // Status colors
         success: '#34C759', // iOS green
         warning: '#FF9500', // iOS orange
         error: '#FF3B30', // iOS red
-        info: '#007AFF', // iOS blue
+        info: '#258cf4', // iOS blue
 
         // Special colors from wallpapers
         gradient1: '#667eea', // Purple gradient start

@@ -1,23 +1,32 @@
+import { enableScreens } from 'react-native-screens';
+enableScreens();
 import React, { useState, useEffect } from 'react';
 import { StatusBar, Text, View, StyleSheet } from 'react-native';
 import { ThemeProvider, useThemeMode } from './src/context/themeContext';
 import RootNavigation from './src/navigation/RootNavigation';
+import { useThemedStyles } from './src/hooks/useThemedStyles';
+import { Theme } from './src/constants';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-// Splash Screen Component
 function SplashScreen() {
+    const styles = useThemedStyles(createStyles);
+
     return (
         <>
             <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
-            <View style={styles.splashContainer}>
-                <View style={styles.logoContainer}>
-                    <Text style={styles.logoIcon}>📱</Text>
-                    <Text style={styles.appName}>WallCraft</Text>
-                    <Text style={styles.appTagline}>Beautiful Wallpapers</Text>
+            <View style={styles.mainContainer}>
+                {/* Icon with circular background */}
+                <View style={styles.iconContainer}>
+                    <View style={styles.subIconContainer}>
+                        <Icon name="wallpaper" size={32} color="#258cf4" />
+                    </View>
                 </View>
 
-                <View style={styles.loadingContainer}>
-                    <Text style={styles.loadingText}>Loading...</Text>
-                </View>
+                {/* App Name */}
+                <Text style={styles.appName}>PixelFlow</Text>
+
+                {/* Tagline */}
+                <Text style={styles.tagline}>Your Walls. Your World.</Text>
             </View>
         </>
     );
@@ -66,42 +75,45 @@ function App(): React.JSX.Element {
     );
 }
 
-const styles = StyleSheet.create({
-    splashContainer: {
-        flex: 1,
-        backgroundColor: '#007AFF', // Your primary blue color
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        paddingVertical: 80,
-    },
-    logoContainer: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    logoIcon: {
-        fontSize: 80,
-        marginBottom: 20,
-    },
-    appName: {
-        fontSize: 36,
-        fontWeight: 'bold',
-        color: '#FFFFFF',
-        marginBottom: 8,
-        letterSpacing: 1,
-    },
-    appTagline: {
-        fontSize: 18,
-        color: 'rgba(255, 255, 255, 0.8)',
-        fontWeight: '500',
-    },
-    loadingContainer: {
-        alignItems: 'center',
-    },
-    loadingText: {
-        fontSize: 16,
-        color: 'rgba(255, 255, 255, 0.7)',
-    },
-});
+const createStyles = (theme: Theme) =>
+    StyleSheet.create({
+        mainContainer: {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: theme.colors.background,
+        },
+        iconContainer: {
+            width: 90,
+            height: 90,
+            borderRadius: 50,
+            backgroundColor: theme.colors.sub_sub_primary,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginBottom: theme.spacing.sm,
+            // ...theme.shadows.lg,
+        },
+        appName: {
+            fontSize: theme.typography.fontSize['4xl'],
+            fontWeight: theme.typography.fontWeight.semibold,
+            color: theme.colors.foreground,
+            marginBottom: 8,
+            letterSpacing: theme.typography.letterSpacing.wide,
+        },
+        tagline: {
+            fontSize: theme.typography.fontSize.lg,
+            fontWeight: theme.typography.fontWeight.normal,
+            color: theme.colors.textSecondary,
+        },
+        subIconContainer: {
+            width: 60,
+            height: 60,
+            borderRadius: 40,
+            backgroundColor: theme.colors.sub_primary,
+            justifyContent: 'center',
+            alignItems: 'center',
+            // ...theme.shadows.lg,
+        },
+    });
 
 export default App;
